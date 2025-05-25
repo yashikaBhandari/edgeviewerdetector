@@ -1,0 +1,8 @@
+# Ignore VS Code settings
+.vscode/
+
+# Node modules (if any build tools)
+node_modules/
+
+# MacOS
+.DS_Store

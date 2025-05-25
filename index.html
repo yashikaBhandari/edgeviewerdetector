@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Real-Time Edge Detection Viewer</title>
+
+  <!-- 3rd-party CSS -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+  <div class="main-container">
+    <!-- ───────────────── HEADER ─────────────────────────── -->
+    <header class="header">
+      <h1>🚀 Real-Time Edge Detection Viewer</h1>
+      <p class="lead">Web-based Computer-Vision Demo</p>
+    </header>
+
+    <!-- ───────────────── STATUS ─────────────────────────── -->
+    <div id="status" class="status loading">
+      Initializing OpenCV.js…
+    </div>
+
+    <!-- ───────────────── VIDEO & CANVAS ─────────────────── -->
+    <div class="video-container">
+      <!-- Hidden until we have permission -->
+      <video  id="video" autoplay playsinline muted style="display:none;"></video>
+      <canvas id="canvasOutput"                 style="display:none;"></canvas>
+    </div>
+
+    <!-- ───────────────── FILTER BUTTONS ─────────────────── -->
+    <div id="controls" class="controls" style="display:none;">
+      <button class="filter-btn active" onclick="setFilter('raw')"       id="rawBtn">🎥 Raw</button>
+      <button class="filter-btn"        onclick="setFilter('gray')"      id="grayBtn">⚫ Gray</button>
+      <button class="filter-btn"        onclick="setFilter('blur')"      id="blurBtn">🌫️ Blur</button>
+      <button class="filter-btn"        onclick="setFilter('edge')"      id="edgeBtn">⚡ Edge</button>
+      <button class="filter-btn"        onclick="setFilter('threshold')" id="thresholdBtn">🔲 Thresh</button>
+    </div>
+
+    <!-- ───────────────── METRICS ─────────────────────────── -->
+    <div id="metrics" class="metrics" style="display:none;">
+      <div class="metric">
+        <div class="metric-value" id="fpsValue">0</div>
+        <div class="metric-label">FPS</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value" id="processTimeValue">0</div>
+        <div class="metric-label">ms / frame</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value" id="resolutionValue">-</div>
+        <div class="metric-label">Resolution</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom JS (deferred so DOM is ready first) -->
+  <script src="script.js" defer></script>
+</body>
+</html>
