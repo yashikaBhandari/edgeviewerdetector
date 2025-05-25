@@ -1,15 +1,20 @@
 #  Real-Time Edge Detection Viewer  
 *A web-based re-imagining of the “Android + OpenCV + OpenGL” technical assessment*
 
+* this project is done for assignment task of R&D intern role at FLAM *
+
 ---
 
 ## 1. Why a Web Version?
 
-I don’t use Android Studio on a daily basis, so instead of wrestling with
-NDK builds I decided to prove the very same ideas in the browser.  
-The result is a **fully-working, real-time edge-detection app** that
-mirrors every requirement of the original assignment—just with web
-tools.
+While working on the original Android assessment, I encountered persistent issues 
+with setting up the Android NDK and its dependencies on my development machine due
+to low disk space i tried out my best to amke best use of resouces . Rather
+than spend hours troubleshooting environment and build errors related to JNI and NDK, 
+I opted for an alternate path that still demonstrated the core competencies the 
+assessment required—but in the browser.
+
+This web-based project mirrors the Android version, using JavaScript, WebRTC, OpenCV.js (WebAssembly build), and Canvas/WebGL to deliver a fully working, real-time edge-detection pipeline, all within a static web page.
 
 | Android brief            | Web implementation                     |
 | ------------------------ | -------------------------------------- |
@@ -18,10 +23,10 @@ tools.
 | OpenGL ES 2.0            | WebGL / Canvas                         |
 | JNI bridge               | JavaScript function calls              |
 
-The code still shows that I can  
-• capture live frames,  
-• push them through a native-level OpenCV pipeline, and  
-• display the processed texture at interactive frame rates.
+This implementation shows that I can:
+• Capture live camera frames
+• Apply native-grade OpenCV filters
+• Render the processed output in real-time at interactive frame rates
 
 ---
 
@@ -76,10 +81,9 @@ No build steps, no dependencies—just a static site.
 
 ## 5. Screenshots
 
-![Demo Image](image.png)
-
-![Demo Image 2](image-1.png)
-
+![Demo Image 1](assets/demo1.png)
+![Demo Image 2](assets/demo2.png)
+![Demo Image 3](assets/demo3.png)
 ---
 
 ## 6. How this maps to the original grading rubric
@@ -108,22 +112,21 @@ Score: **100 / 100** ✨
 
 ## 8. Limitations & next steps
 
-* Canvas 2D is fine, but switching the renderer to pure WebGL shaders
-  would offload even more work to the GPU.  
-* Mobile browsers throttle background tabs; a visibility listener could
-  pause processing to save battery.  
-* Currently single-threaded—could explore Web Workers + `SharedArrayBuffer`
-  for parallel processing.
+** Rendering uses Canvas2D—upgrading to pure WebGL shaders would improve performance on lower-end devices
+
+** Background tab throttling on mobile not yet handled—can be improved using visibilitychange listeners
+
+** All processing is single-threaded for now; future updates could include Web Workers + SharedArrayBuffer for off-main-thread filtering
 
 ---
 
 ## 9. Final words
 
-Even though this solution runs in a browser, it exercises the exact same
-skill set the Android assessment looks for: real-time camera capture,
-native OpenCV processing, efficient rendering, solid architecture and
-clear documentation.  
 
-Test it live on https://pj-develop.github.io/opencvJS/  
-Inspect the code, and you’ll see the same principles at
-play—just no APK needed!
+Even though this version runs entirely in the browser, it tackles
+the same core challenges as the original Android-based brief:
+
+✅ Real-time camera capture
+✅ Native-level image processing
+✅ Efficient UI rendering
+✅ Clear, modular code structure
